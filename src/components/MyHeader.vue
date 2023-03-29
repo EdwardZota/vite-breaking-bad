@@ -14,12 +14,10 @@
 <style lang="scss" scoped>
 div{
     height: 80px;
-    widows: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
+    widows: 100vw;
     display: flex;
     align-items: center;
+    background-color: white;
     
     #logo{
         height: 50px;
