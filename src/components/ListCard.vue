@@ -27,8 +27,6 @@
     </div>
 </template>
 
-<style lang="scss">
-.box{
-}
+<style lang="scss" scoped>
 
 </style>
