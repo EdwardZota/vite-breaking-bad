@@ -7,6 +7,7 @@
   import Selection from './components/Selection.vue';
   import Counter from './components/Counter.vue';
   import ListCard from './components/ListCard.vue';
+  import LoadingPage from './components/LoadingPage.vue';
 
 
   export default {
@@ -14,7 +15,8 @@
       MyHeader,
       Selection,
       Counter,
-      ListCard
+      ListCard,
+      LoadingPage
     },
     data(){
       return{
@@ -26,6 +28,7 @@
         axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
         .then(response =>{
           this.store.AllCard = response.data.data;
+          this.store.loading=false;
         })
       }
     },
@@ -39,6 +42,8 @@
 
 <template>
 
+  <LoadingPage/>
+
   <MyHeader/>
 
   <main>
@@ -46,6 +51,7 @@
     <ListCard/>
 
   </main>
+
 
   
 </template>
