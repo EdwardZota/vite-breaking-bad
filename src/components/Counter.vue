@@ -8,6 +8,11 @@ import {store} from '../AllCard.js';
             return{
                 store
             }
+        },
+        computed:{
+            numberOfResult(){
+                return `Dalla tua ricerca hai ottenuto ${store.AllCard.length} risultati!`
+            }
         }
     }
 
@@ -16,7 +21,7 @@ import {store} from '../AllCard.js';
 <template>
   
     <div class="counter">
-        <span>La tua ricerca ha trovato TOT risultati</span>
+        <span>{{numberOfResult}}</span>
     </div>
 </template>
 
