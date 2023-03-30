@@ -25,15 +25,23 @@
     },
     methods:{
       GetCard(){
-        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
+        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=10&offset=0')
         .then(response =>{
           this.store.AllCard = response.data.data;
           this.store.loading=false;
+        })
+      },
+      GetCardArchetype(){
+        axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+        .then(response =>{
+          this.store.AllCardArchetype = response.data;
+          console.log(this.store.AllCardArchetype);
         })
       }
     },
     created(){
       this.GetCard();
+      this.GetCardArchetype();
     }
   }
 
@@ -44,10 +52,13 @@
 
   <LoadingPage/>
 
+
   <MyHeader/>
+  
+  <Selection/>
 
   <main>
-
+    <Counter/>
     <ListCard/>
 
   </main>

@@ -23,7 +23,7 @@
 @use '../styles/partials/variable';
 
 .singleCard{
-    width: 250px;
+    width: 220px;
     background-color: variable.$primary-color;
     height: 450px;
     margin-bottom: 30px;

@@ -21,7 +21,7 @@
 
         <OneCard 
             :image="card.card_images[0].image_url"
-            :name="card.name"
+            :name="card.name.toUpperCase()"
             :spacies="card.archetype"
         />
     </div>
