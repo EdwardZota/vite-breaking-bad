@@ -25,7 +25,7 @@
     },
     methods:{
       GetCard(){
-        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=10&offset=0')
+        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
         .then(response =>{
           this.store.AllCard = response.data.data;
           this.store.loading=false;
@@ -35,7 +35,16 @@
         axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
         .then(response =>{
           this.store.AllCardArchetype = response.data;
-          console.log(this.store.AllCardArchetype);
+        })
+      },
+      SelectArchetype(){
+        let urlApi = 'https://db.ygoprodeck.com/api/v7/cardinfo.php';
+        
+        urlApi +=`?archetype=${this.store.selected}`;
+
+        axios.get(urlApi)
+        .then(response =>{
+          this.store.AllCard = response.data.data;
         })
       }
     },
@@ -55,8 +64,7 @@
 
   <MyHeader/>
   
-  <Selection/>
-
+  <Selection  @change="SelectArchetype()"/>
   <main>
     <Counter/>
     <ListCard/>

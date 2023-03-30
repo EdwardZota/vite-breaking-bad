@@ -15,7 +15,7 @@
 
 <template>
     <div class="container">
-    <select id="archetype">
+    <select id="archetype" v-model="store.selected" @change="$emit('change')">
         <option v-for="(name,i) in store.AllCardArchetype" :key="i" :value="name.archetype_name">{{name.archetype_name}}</option>
     </select>
 
